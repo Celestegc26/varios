@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -89,7 +90,7 @@ public class WindowTienda extends JFrame {
 		JButton btn = new JButton("Enviar");
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				clienteService.nuevoPedido(new Pedido (0, tfProducto.getText(), Integer.parseInt(tfUnidades.getText()), tfTienda.getText())); 
+				clienteService.nuevoPedido(new Pedido (0, tfProducto.getText(), Integer.parseInt(tfUnidades.getText()), LocalDate.now(), tfTienda.getText())); 
 			}
 		});
 		btn.setFont(new Font("Tahoma", Font.PLAIN, 14));
