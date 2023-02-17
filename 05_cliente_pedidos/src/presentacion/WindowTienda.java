@@ -90,7 +90,11 @@ public class WindowTienda extends JFrame {
 		JButton btn = new JButton("Enviar");
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				clienteService.nuevoPedido(new Pedido (0, tfProducto.getText(), Integer.parseInt(tfUnidades.getText()), LocalDate.now(), tfTienda.getText())); 
+				clienteService.nuevoPedido(new Pedido (0, 
+						tfProducto.getText(), 
+						Integer.parseInt(tfUnidades.getText()), 
+						LocalDate.now(), 
+						tfTienda.getText())); 
 			}
 		});
 		btn.setFont(new Font("Tahoma", Font.PLAIN, 14));

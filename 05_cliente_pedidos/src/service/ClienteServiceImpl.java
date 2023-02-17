@@ -13,6 +13,7 @@ public class ClienteServiceImpl implements ClienteService {
 
 	@Override
 	public void nuevoPedido(Pedido pedido) {		
+			System.out.println("Estoy en el Service del Cliente para el alta del pedido");
 			try(Socket socket=ConnectionLocator.getSocket();
 					ObjectOutputStream out= new ObjectOutputStream(socket.getOutputStream());){
 				out.writeObject(pedido);

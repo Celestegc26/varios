@@ -18,10 +18,10 @@ public class HiloLlamada implements Runnable{
 	public void run() {
 		//para leer y escribir por el socket
 		try(ObjectInputStream in=new ObjectInputStream(socket.getInputStream())){
-			PedidosService service=PedidosServiceFactory.getPedidosService();
-			Pedido pedido=(Pedido)in.readObject();
-			System.out.println(pedido.getProducto()+"-"+pedido.getTienda());
-			service.altaPedido((Pedido)in.readObject());
+				PedidosService service=PedidosServiceFactory.getPedidosService();
+				Pedido pedido=(Pedido)in.readObject();
+				System.out.println(pedido.getProducto()+"-"+pedido.getTienda());
+				service.altaPedido(pedido);
 		}
 		catch(IOException | ClassNotFoundException ex) {
 			ex.printStackTrace();

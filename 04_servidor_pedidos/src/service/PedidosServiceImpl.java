@@ -13,6 +13,7 @@ public class PedidosServiceImpl implements PedidosService {
 
 	@Override
 	public void altaPedido(Pedido pedido) {
+		System.out.println("Estoy en el Service para el alta del pedido");
 		try(Connection con=ConnectionLocator.getConnection();){
 				String sql="insert into pedidos(producto,unidades,fecha,tienda) values(?,?,?,?)";
 				PreparedStatement ps=con.prepareStatement(sql);
