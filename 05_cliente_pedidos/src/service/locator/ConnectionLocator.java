@@ -8,7 +8,7 @@ import java.sql.Connection;
 public class ConnectionLocator {
 	
 	public static Socket getSocket() throws UnknownHostException, IOException {
-		Socket socket=new Socket("localhost", 8000);
+		Socket socket=new Socket("10.1.3.34", 8000);
 		return socket;
 	}
 		

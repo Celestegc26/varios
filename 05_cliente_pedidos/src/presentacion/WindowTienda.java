@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import model.Pedido;
 import service.ClienteService;
 import service.TiendaServiceFactory;
+import javax.swing.JTextArea;
 
 public class WindowTienda extends JFrame {
 
@@ -87,25 +88,30 @@ public class WindowTienda extends JFrame {
 		contentPane.add(tfTienda);
 		tfTienda.setColumns(10);
 		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(133, 174, 226, 45);
+		contentPane.add(textArea);
+		
 		JButton btn = new JButton("Enviar");
 		btn.addActionListener(new ActionListener() {
+			String mensaje="";
 			public void actionPerformed(ActionEvent e) {
-				clienteService.nuevoPedido(new Pedido (0, 
+				mensaje=clienteService.nuevoPedido(new Pedido (0, 
 						tfProducto.getText(), 
 						Integer.parseInt(tfUnidades.getText()), 
 						LocalDate.now(), 
-						tfTienda.getText())); 
-			}
+						tfTienda.getText())
+						); 
+				textArea.setText(mensaje);
+			}			
 		});
+		
 		btn.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btn.setBounds(184, 127, 89, 23);
 		contentPane.add(btn);
 		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_3.setBounds(109, 180, 124, 22);
-		contentPane.add(lblNewLabel_3);
+		
+		
+		
 	}
-	
-	
 }

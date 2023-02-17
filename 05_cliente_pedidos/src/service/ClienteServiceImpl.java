@@ -12,17 +12,19 @@ import service.locator.ConnectionLocator;
 public class ClienteServiceImpl implements ClienteService {
 
 	@Override
-	public void nuevoPedido(Pedido pedido) {		
+	public String nuevoPedido(Pedido pedido) {		
 			System.out.println("Estoy en el Service del Cliente para el alta del pedido");
+			String mensajeSalida="";
 			try(Socket socket=ConnectionLocator.getSocket();
 					ObjectOutputStream out= new ObjectOutputStream(socket.getOutputStream());){
 				out.writeObject(pedido);
 				System.out.println("El pedido ha sido guardado correctamente");
 				BufferedReader bf=new BufferedReader(new InputStreamReader(socket.getInputStream()));
-				System.out.println(bf.readLine());
+				mensajeSalida=bf.readLine();
 				
 			}catch(IOException  ex) {
 				ex.printStackTrace();
 			}		
+			return mensajeSalida;
 	}	
 }
