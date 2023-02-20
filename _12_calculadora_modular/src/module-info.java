@@ -1,0 +1,3 @@
+module modulocalculadora {
+	exports service;
+}
